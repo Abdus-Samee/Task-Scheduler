@@ -7,6 +7,8 @@
     <title>Scheduled Task</title>
 </head>
 <body>
-    
+    <h1>Task Scheduler</h1>
+    <h3>{{ $details['message'] }}</h3>
+    <p>Thank you, <br> Task Scheduler Team</p>
 </body>
 </html>

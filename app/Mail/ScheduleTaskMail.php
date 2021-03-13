@@ -11,14 +11,16 @@ class ScheduleTaskMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $details;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -28,6 +30,6 @@ class ScheduleTaskMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Schdeuled Task Mail')->view('schedule');
+        return $this->subject('Task Schdeuler Reminder Mail')->view('schedule');
     }
 }

@@ -29,7 +29,12 @@ class TaskController extends Controller
         
         $current = Carbon::now()->addHours(6);
 
-        Mail::to($email_to)->later($res->diffInSeconds($current), new ScheduleTaskMail());
+        $message = 'Task scheduled at '.$date.' '.$time.' has reached deadline.';
+        $details = [
+            'message' => $message
+        ];
+
+        Mail::to($email_to)->later($res->diffInSeconds($current), new ScheduleTaskMail($details));
 
         return redirect('/home')->with('status', 'Task Added and Mail sent successfully');
     }
